@@ -36,14 +36,39 @@ The steps below will help you set up your twitter account to be able to access t
 ###2. Deriving tweet sentiments:
 
   The sentiment of a tweet is computed as the sum of the sentiment scores for each term in the tweet.
-  Use *AFFIN-111.txt* for the sentiment scores of each term. Copy the first few lines of *output.txt* for sample data.
+  Use *AFFIN-111.txt* for the sentiment scores of each term. Copy the first few lines of *output.txt* for sample data(this is the data in *tweet_file*).
   
-  Run: `python tweet_sentiment.py AFINN-111.txt output.txt` to get the tweet sentiments
+  Run: `python tweet_sentiment.py AFINN-111.txt tweet_file` to get the tweet sentiments
   
-  
+###3. Deriving sentiments of new terms:
 
+  Run: `python term_sentiment.py AFINN-111.txt tweet_file` to get the sentiments for the new terms (i.e., terms not in AFFIN-111.txt)
+  
+###4. Computing term frequencies:
 
+  The script frequency.py is used to compute the term frequency histogram of the livestream data harvested in 1.
+
+  The frequency of a term can be calculated as :
+  [# of occurrences of the term in all tweets]/[# of occurrences of all terms in all tweets]
+  
+  Run: `python frequency.py tweet_file` to get the frequencies
+  
+###5. Happiest State:
+
+  The script happiest_state.py that returns the name of the happiest state as a string.
+  
+  Run: `python happiestStates.py AFFIN-111.txt three_minutes_tweets.json` to get the two letter abbreviation of the happiest state in the US based on the tweet sentiments.
+  
+###6. Top ten Hashtags:
+
+  Run: `python topTenHashtags.py tweet_file` to retrieve the top ten hashtags found in the tweet file
+  
+  
 
 This assignment was done as part of the "Data Manipulation at Scale: Systems and Algorithms" course (Part of the data science specialization certificate) offered by the University of Washington on Coursera. 
+
+The links and explanations and some sample code for the assignment is used as is from the course website. 
+
+As a side note, I would recommend this course to anyone interested in working on data science problems and looking for some cool work to enhance their skills. 
 
 Link to the same: https://www.coursera.org/learn/data-manipulation/home/welcome
